@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/insta-react/static/css/main.1e7af6ce.chunk.css",
+    "main.js": "/insta-react/static/js/main.0e582b38.chunk.js",
+    "main.js.map": "/insta-react/static/js/main.0e582b38.chunk.js.map",
+    "runtime~main.js": "/insta-react/static/js/runtime~main.668963e6.js",
+    "runtime~main.js.map": "/insta-react/static/js/runtime~main.668963e6.js.map",
+    "static/js/2.ab2d1335.chunk.js": "/insta-react/static/js/2.ab2d1335.chunk.js",
+    "static/js/2.ab2d1335.chunk.js.map": "/insta-react/static/js/2.ab2d1335.chunk.js.map",
+    "index.html": "/insta-react/index.html",
+    "precache-manifest.be0e007209b11c4392f7bc7ed05a5dd4.js": "/insta-react/precache-manifest.be0e007209b11c4392f7bc7ed05a5dd4.js",
+    "service-worker.js": "/insta-react/service-worker.js",
+    "static/css/main.1e7af6ce.chunk.css.map": "/insta-react/static/css/main.1e7af6ce.chunk.css.map",
+    "static/media/error.png": "/insta-react/static/media/error.3b8ad90a.png",
+    "static/media/logo.svg": "/insta-react/static/media/logo.9e8a2b39.svg"
+  }
+}
