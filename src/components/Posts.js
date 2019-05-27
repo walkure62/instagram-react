@@ -1,12 +1,74 @@
 import React, {Component} from 'react';
-import Post from './Post'
+import User from './User';
+import InstaService from '../services/instaservice';
+import ErrorMessage from './ErrorMessage';
 
 export default class Posts extends Component {
+    InstaService = new InstaService();
+
+    state = {
+        posts: [],
+        error: false
+    }
+
+    componentDidMount() {
+        this.updatePosts();
+
+    }
+
+    updatePosts() {
+        this.InstaService.getAllPosts()
+        .then(this.onPostsLoaded)
+        .catch(this.onError);
+    }
+
+    onPostsLoaded = (posts) => {
+        this.setState({
+            posts: posts,
+            error: false
+        })
+
+    }
+
+    onError = (err) => {
+        this.setState({
+            error: true
+        })
+    }
+
+    renderItems(arr) {
+        return arr.map((item) => {
+            const {name, altName, photo, src, alt, descr, id} = item;
+
+            return (
+                <div key={id} className="post">
+                <User
+                src= {photo}
+                alt= {altName}
+                name= {name}
+                min />
+                <img src={src} alt={alt}></img>
+                <div className="post__name">
+                    {name}
+                </div>
+                <div className="post__descr">
+                    {descr}
+                </div>
+            </div>
+            )
+        })
+    }
+
     render() {
+        const {error, posts} = this.state;
+        if (error) {
+            return <ErrorMessage/>
+        }
+
+        const items = this.renderItems(posts);
         return  (
             <div className="left">
-                <Post alt="nature" src="https://womanadvice.ru/sites/default/files/49/2018-04-07_1543/skalistye_gory_kanada.jpg" />
-                <Post alt="nature" src="https://regnum.ru/uploads/pictures/news/2016/01/22/regnum_picture_1453489967687584_big.jpg" />
+                {items}
             </div>
         )
     }
