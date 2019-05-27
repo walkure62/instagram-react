@@ -59,7 +59,10 @@ export default class Users extends Component {
                 src="https://pp.userapi.com/c854328/v854328696/225a2/X2tkGXjGy3c.jpg" 
                 alt="Anastasia" 
                 name="walkure62"/>
-                {items}
+
+            <div className="users__block">
+            {items}
+            </div>
             </div>
         )
     }

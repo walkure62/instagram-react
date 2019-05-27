@@ -101,8 +101,6 @@ header {
     align-items: center;
     text-decoration: none;
     color: #000;
-    margin-bottom: 20px;
-    
 }
 
 .user img {
@@ -124,7 +122,6 @@ header {
     justify-content: flex-start;
     align-items: center;
     margin: 7px 0;
-    margin-left: 10px;
 }
 
 .min img {
@@ -132,7 +129,6 @@ header {
     height: 50px;
     border-radius: 100%;
     object-fit: cover;
-    margin-right: 10px;
 }
 
 .min div {
