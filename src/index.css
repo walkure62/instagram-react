@@ -12,6 +12,11 @@ body {
 .container {
     max-width: 1140px;
     margin: 0 auto;
+    display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 header {
@@ -25,7 +30,7 @@ header {
 }
 
 .logo img {
-    width: 60px;
+    width: 80px;
     -webkit-filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
 }

@@ -45,7 +45,9 @@ export default class Palette extends Component {
 
     render() {
         const {error, photos} = this.state;
+
         if (error) {
+            document.querySelector('.user').style.display = 'none';
             return <ErrorMessage/>
         }
 

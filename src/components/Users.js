@@ -49,7 +49,11 @@ export default class Users extends Component {
         })
     }
     render() {
-        const {users} = this.state;
+        const {users, error} = this.state;
+
+        if (error) {
+            document.querySelector('.right').style.display = 'none';
+        }
        
 
         const items = this.renderUsers(users);
