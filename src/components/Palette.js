@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import ErrorMessage from './ErrorMessage';
 import InstaService from '../services/instaservice';
+import LoadingMessage from './LoadingMessage';
 
 export default class Palette extends Component {
     InstaService = new InstaService();
 
     state = {
         photos: [],
-        error: false
+        error: false,
+        loading: true
     }
 
     componentDidMount() {
@@ -17,20 +19,23 @@ export default class Palette extends Component {
     updatePhotos() {
         this.InstaService.getAllPhotos()
         .then(this.onPhotosLoaded)
-        .catch(this.onError);
+        .catch(this.onError)
     }
 
     onPhotosLoaded = (photos) => {
-        this.setState({
-            // photos: photos, Если свойство и значение совпадают можно записать =>
+        setTimeout(function () {
+            this.setState({
             photos,
-            error: false
-        })
+            error: false,
+            loading: false
+            });
+          }.bind(this), 4000)
     }
 
     onError = (err) => {
         this.setState({
-            error: true
+            error: true,
+            loading: false
         })
     }
 
@@ -44,18 +49,27 @@ export default class Palette extends Component {
     }
 
     render() {
-        const {error, photos} = this.state;
+        const {error, photos, loading} = this.state;
+
+        if (loading) {
+            return (
+                <div className="palette loading">
+                    <LoadingMessage/>
+                </div>
+            )
+        }
 
         if (error) {
             document.querySelector('.user').style.display = 'none';
             return <ErrorMessage/>
         }
 
-        const items = this.renderItems(photos);
+        const items =  this.renderItems(photos);
         return  (
             <div className="palette">
                 {items}
             </div>
         )
     }
+
 }

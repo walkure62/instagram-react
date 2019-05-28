@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import User from './User';
 import InstaService from '../services/instaservice';
 import ErrorMessage from './ErrorMessage';
+import LoadingMessage from './LoadingMessage';
 
 export default class Posts extends Component {
     InstaService = new InstaService();
 
     state = {
         posts: [],
-        error: false
+        error: false,
+        loading: true
     }
 
     componentDidMount() {
@@ -23,16 +25,19 @@ export default class Posts extends Component {
     }
 
     onPostsLoaded = (posts) => {
-        this.setState({
-            posts: posts,
-            error: false
-        })
-
-    }
+        setTimeout(function () {
+            this.setState({
+            posts,
+            error: false,
+            loading: false
+            });
+          }.bind(this), 4000)
+        }
 
     onError = (err) => {
         this.setState({
-            error: true
+            error: true,
+            loading: false
         })
     }
 
@@ -60,7 +65,16 @@ export default class Posts extends Component {
     }
 
     render() {
-        const {error, posts} = this.state;
+        const {error, posts, loading} = this.state;
+
+        if (loading) {
+                   return (
+                <div className="left loading">
+                    <LoadingMessage/>
+                </div>
+            )
+        }
+
         if (error) {
             return <ErrorMessage/>
         }

@@ -171,3 +171,14 @@ header {
     height: 300px;
     object-fit: cover;
 }
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.loading img {
+    width: 200px;
+    height: 200px;
+    object-fit: none;
+}
